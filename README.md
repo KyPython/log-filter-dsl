@@ -1,6 +1,34 @@
 # Log Filter DSL
 
+[![npm version](https://img.shields.io/npm/v/log-filter-dsl.svg)](https://www.npmjs.com/package/log-filter-dsl)
+[![npm downloads](https://img.shields.io/npm/dm/log-filter-dsl.svg)](https://www.npmjs.com/package/log-filter-dsl)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A domain-specific language (DSL) for filtering log lines, inspired by "Domain Languages" from *The Pragmatic Programmer*.
+
+## Installation
+
+Install globally to use the `log-filter` command:
+
+```bash
+npm install -g log-filter-dsl
+```
+
+Or install locally in your project:
+
+```bash
+npm install log-filter-dsl
+```
+
+## Quick Start
+
+```bash
+# Filter logs by level
+log-filter 'level = ERROR' < app.log
+
+# Filter with complex conditions
+log-filter 'service = "auth" and (level = WARN or level = ERROR)' < app.log
+```
 
 ## Overview
 
@@ -77,21 +105,38 @@ log-filter 'not level = DEBUG' < app.log
 log-filter '(service = "api" or service = "auth") and level = ERROR' < app.log
 ```
 
-## Installation
-
-```bash
-npm install
-npm run build
-```
-
 ## Usage
 
-### CLI
+### CLI (Global Installation)
 
-The CLI reads log lines from stdin and prints only those matching the filter:
+After installing globally with `npm install -g log-filter-dsl`, use the `log-filter` command:
 
 ```bash
 log-filter "<filter expression>" < logfile.log
+```
+
+### CLI (Local Installation)
+
+If installed locally, use via npx:
+
+```bash
+npx log-filter-dsl "<filter expression>" < logfile.log
+```
+
+Or add to your `package.json` scripts:
+
+```json
+{
+  "scripts": {
+    "filter-logs": "log-filter"
+  }
+}
+```
+
+Then run:
+
+```bash
+npm run filter-logs 'level = ERROR' < app.log
 ```
 
 ### Supported Log Formats
