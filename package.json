@@ -16,10 +16,21 @@
     "dsl",
     "log",
     "filter",
-    "parser"
+    "parser",
+    "domain-specific-language",
+    "cli",
+    "logging"
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/log-filter-dsl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/log-filter-dsl/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/log-filter-dsl#readme",
   "devDependencies": {
     "@types/jest": "^29.5.0",
     "@types/node": "^20.0.0",
